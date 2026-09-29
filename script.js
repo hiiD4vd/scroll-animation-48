@@ -29,3 +29,19 @@ const lottieAnimation = lottie.loadAnimation({
   renderer: "svg",
   autoplay: false,
 });
+
+const heroImgInitialWidth = heroImg.offsetWidth;
+const heroImgTargetWidth = 300;
+
+ScrollTrigger.create({
+  trigger: ".about",
+  start: "top bottom",
+  end: "top 30%",
+  scrub: 1,
+  onUpdate: (self) => {
+    const heroImgCurrentWidth =
+      heroImgInitialWidth -
+      self.progress * (heroImgInitialWidth - heroImgTargetWidth);
+    gsap.set(heroImg, { width: `${heroImgCurrentWidth}px` });
+  },
+});
