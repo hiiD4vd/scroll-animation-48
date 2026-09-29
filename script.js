@@ -19,3 +19,13 @@ lenis.on("scroll", ({ scroll }) => {
   scrollDirection = scroll > lastScrollY ? "down" : "up";
   lastScrollY = scroll;
 });
+
+const heroImg = document.querySelector(".hero-img");
+const lottieContainer = document.querySelector(".lottie");
+
+const lottieAnimation = lottie.loadAnimation({
+  container: lottieContainer,
+  path: "/duck.json",
+  renderer: "svg",
+  autoplay: false,
+});
