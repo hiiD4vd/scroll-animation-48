@@ -11,3 +11,11 @@ gsap.ticker.add((time) => {
   lenis.raf(time * 1000);
 });
 gsap.ticker.lagSmoothing(0);
+
+let scrollDirection = "down";
+let lastScrollY = 0;
+
+lenis.on("scroll", ({ scroll }) => {
+  scrollDirection = scroll > lastScrollY ? "down" : "up";
+  lastScrollY = scroll;
+});
